@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>皮格马利翁闹剧 | Sylverius</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:"微软雅黑",sans-serif}
+body{
+  background:#f0f2ff;
+  color:#333;
+  line-height:1.8;
+  padding:40px 20px;
+}
+.box{max-width:800px;margin:0 auto}
+
+.back{
+  display:inline-block;
+  margin-bottom:30px;
+  padding:8px 20px;
+  background:#d4dcff;
+  color:#5a66b3;
+  border-radius:30px;
+  border:none;
+  outline:none;
+  cursor:pointer;
+  font-size:16px;
+    transition:transform 0.2s;
+  cursor:pointer;
+}
+.back:hover{
+  transform:translateY(-3px);
+}
+
+.title{
+  font-size:22px;
+  margin:30px 0 16px;
+  border-left:4px solid #9ca6e6;
+  padding-left:12px;
+  color:#6b7acc;
+}
+.text-card{
+  background:#fff;
+  border-radius:14px;
+  padding:26px;
+  margin-bottom:30px;
+}
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(240px,1fr));
+  gap:16px;
+}
+.item{
+  background:#fff;
+  border-radius:14px;
+  overflow:hidden;
+}
+.item img{
+  width:100%;
+  height:180px;
+  object-fit:cover;
+}
+.item .info{padding:16px;font-size:14px}
+strong{color:#6b7acc}
+</style>
+</head>
+<body>
+<div class="box">
+
+<button class="back" onclick="location.href='主页.html'">← 返回主页</button>
+
+<div class="title">皮格马利翁闹剧</div>
+<div class="text-card">
+人物关系: 庸人学者&天才造物 | 圣人私心&假人空心<br>
+核心:天才的造物、无知无心的蝴蝶，被三千万世的轮回训练依旧懵懂。非人非神,徒劳的燃烧自我。作为【好心人】的维里塔斯·拉帝奥把她从那片忆质中打捞出来。或许是出于研究精神,好奇数据成为有形体但无*心*的生命是如何存在。他塑造她,引导她,暗示她应该是如何的存在。可最后还是以闹剧结尾,她难以区分她想要的是自我生命的本能,还是无趣的时刻锚定。
+</div>
+
+<div class="title">约稿展示</div>
+<div class="grid">
+  <div class="item">
+    <img src="art1.jpg">
+    <div class="info">稿件备注</div>
+  </div>
+  <div class="item">
+    <img src="art2.jpg">
+    <div class="info">稿件备注</div>
+  </div>
+</div>
+
+<div class="title">随记</div>
+<div class="text-card">
+无
+</div>
+</div>
+<!-- 跳转其他 AU 子页面 -->
+<div style="
+  max-width:800px;
+  margin:40px auto;
+  display:flex;
+  gap:16px;
+  flex-wrap:wrap;
+  justify-content:center;
+">
+  <button onclick="location.href='月夜蝴蝶谋杀案.html'" style="
+    flex:1;
+    min-width:200px;
+    padding:14px;
+    background:rgba(255,255,255,0.92);
+    border:2px solid rgba(255,255,255,0.85);
+    border-radius:12px;
+    box-shadow:0 3px 12px rgba(140,110,200,0.08);
+    color:#8164c7;
+    font-size:15px;
+    cursor:pointer;
+    transition:transform 0.2s;
+  " onmouseover="this.style.transform='translateY(-3px)'" onmouseout="this.style.transform='translateY(0)'">
+    月夜蝴蝶谋杀案
+  </button>
+
+  <button onclick="location.href='唯一的隐德来希.html'" style="
+    flex:1;
+    min-width:200px;
+    padding:14px;
+    background:rgba(255,255,255,0.92);
+    border:2px solid rgba(255,255,255,0.85);
+    border-radius:12px;
+    box-shadow:0 3px 12px rgba(140,110,200,0.08);
+    color:#8164c7;
+    font-size:15px;
+    cursor:pointer;
+    transition:transform 0.2s;
+  " onmouseover="this.style.transform='translateY(-3px)'" onmouseout="this.style.transform='translateY(0)'">
+    唯一的隐德来希
+  </button>
+</div>
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>唯一的隐德来希 | Sylverius</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:"微软雅黑",sans-serif}
+body{
+  background:#f7f8ff;
+  color:#333;
+  line-height:1.8;
+  padding:40px 20px;
+}
+.box{max-width:800px;margin:0 auto}
+.back{
+  display:inline-block;
+  margin-bottom:30px;
+  padding:8px 20px;
+  background:#e1e5ff;
+  color:#6b74a6;
+  border-radius:30px;
+  border:none;
+  cursor:pointer;
+    transition:transform 0.2s;
+  cursor:pointer;
+}
+.back:hover{
+  transform:translateY(-3px);
+}
+.title{
+  font-size:22px;
+  margin:30px 0 16px;
+  border-left:4px solid #a8aed6;
+  padding-left:12px;
+  color:#7d84b3;
+}
+.text-card{
+  background:#fff;
+  border-radius:14px;
+  padding:26px;
+  margin-bottom:30px;
+}
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(240px,1fr));
+  gap:16px;
+}
+.item{
+  background:#fff;
+  border-radius:14px;
+  overflow:hidden;
+}
+.item img{
+  width:100%;
+  height:180px;
+  object-fit:cover;
+}
+.item .info{padding:16px;font-size:14px}
+strong{color:#7d84b3}
+</style>
+</head>
+<body>
+<div class="box">
+
+<button class="back" onclick="location.href='主页.html'">← 返回主页</button>
+
+<div class="title">唯一的隐德来希</div>
+<div class="text-card">
+单人向 | 角色设计<br>
+神话之外诞生的蝴蝶,永夜中的残缺的月亮,如今不息的演算。<br>
+异域的蝴蝶啊,你非神明掌中的傀儡,非宿命镣铐「██」的囚徒,你要颠覆,去向至高的权威宣战，创造属于自己的法则。<br>
+——神明无法赐予人类自由意志,生命此因而存在。
+</div>
+
+<div class="title">约稿展示</div>
+<div class="grid">
+  <div class="item">
+    <img src="art1.jpg">
+    <div class="info">稿件备注</div>
+  </div>
+</div>
+
+<div class="title">随记</div>
+<div class="text-card">
+无
+</div>
+</div>
+
+
+<!-- 底部：跳转其他子页面按钮 -->
+<div style="
+  max-width:800px;
+  margin:40px auto;
+  display:flex;
+  gap:16px;
+  flex-wrap:wrap;
+  justify-content:center;
+">
+  <button onclick="location.href='皮格马利翁闹剧.html'" style="
+    flex:1;
+    min-width:200px;
+    padding:14px;
+    background:rgba(255,255,255,0.92);
+    border:2px solid rgba(255,255,255,0.85);
+    border-radius:12px;
+    box-shadow:0 3px 12px rgba(140,110,200,0.08);
+  color:#6b74a6;
+    font-size:15px;
+    cursor:pointer;
+    transition:transform 0.2s;
+  " onmouseover="this.style.transform='translateY(-3px)'" onmouseout="this.style.transform='translateY(0)'">
+    皮格马利翁闹剧
+  </button>
+
+  <button onclick="location.href='月夜蝴蝶谋杀案.html'" style="
+    flex:1;
+    min-width:200px;
+    padding:14px;
+    background:rgba(255,255,255,0.92);
+    border:2px solid rgba(255,255,255,0.85);
+    border-radius:12px;
+    box-shadow:0 3px 12px rgba(140,110,200,0.08);
+  color:#6b74a6;
+    font-size:15px;
+    cursor:pointer;
+    transition:transform 0.2s;
+  " onmouseover="this.style.transform='translateY(-3px)'" onmouseout="this.style.transform='translateY(0)'">
+    月夜蝴蝶谋杀案
+  </button>
+</div>
+</body>
+</html>
