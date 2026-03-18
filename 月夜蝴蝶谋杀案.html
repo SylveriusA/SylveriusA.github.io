@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>月夜蝴蝶谋杀案 | Sylverius</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:"微软雅黑",sans-serif}
+body{
+  background:#151826;
+  color:#e0e0e0;
+  line-height:1.8;
+  padding:40px 20px;
+}
+.box{max-width:800px;margin:0 auto}
+.back{
+  display:inline-block;
+  margin-bottom:30px;
+  padding:8px 20px;
+  background:#2d344d;
+  color:#c8d7f2;
+  border-radius:30px;
+  border:none;
+  cursor:pointer;
+    transition:transform 0.2s;
+  cursor:pointer;
+}
+.back:hover{
+  transform:translateY(-3px);
+}
+.title{
+  font-size:22px;
+  margin:30px 0 16px;
+  border-left:4px solid #4d5b7a;
+  padding-left:12px;
+  color:#adc2eb;
+}
+.text-card{
+  background:#1c2030;
+  border-radius:14px;
+  padding:26px;
+  margin-bottom:30px;
+}
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(240px,1fr));
+  gap:16px;
+}
+.item{
+  background:#1c2030;
+  border-radius:14px;
+  overflow:hidden;
+}
+.item img{
+  width:100%;
+  height:180px;
+  object-fit:cover;
+}
+.item .info{padding:16px;font-size:14px}
+strong{color:#adc2eb}
+</style>
+</head>
+<body>
+<div class="box">
+
+<button class="back" onclick="location.href='index.html'">← 返回主页</button>
+
+<div class="title">月夜蝴蝶谋杀案</div>
+<div class="text-card">
+多人大乱斗<br>
+人物关系：神秘背刺女大丽花&毒舌教授拉帝奥&失忆蝴蝶桑原深月&冷硬派侦探不死途<br>
+核心:——二相乐园线——<br>
+整整一分钟的狂喜啊!难道还不足以让人享用一生吗?在这片乐园请允许一切发生。包括遗憾、愚蠢和犯错。而爱始于自我欺骗,终于欺骗他人,这就是所谓的浪漫。因此,爱与希望,是会杀人的乌托邦。
+</div>
+
+<div class="title">约稿展示</div>
+<div class="grid">
+  <div class="item">
+    <img src="art1.jpg">
+    <div class="info">稿件备注</div>
+  </div>
+  <div class="item">
+    <img src="art2.jpg">
+    <div class="info">稿件备注</div>
+  </div>
+</div>
+
+<div class="title">随记</div>
+<div class="text-card">
+无
+</div>
+</div>
+<!-- 底部：跳转其他 AU 子页面 -->
+<div style="
+  max-width:800px;
+  margin:40px auto;
+  display:flex;
+  gap:16px;
+  flex-wrap:wrap;
+  justify-content:center;
+">
+  <button onclick="location.href='皮格马利翁闹剧.html'" style="
+    flex:1;
+    min-width:200px;
+    padding:14px;
+    background:#2d344d;
+    border:2px solid #2d344d;
+    border-radius:12px;
+    box-shadow:0 3px 12px rgba(140,110,200,0.08);
+    color:#c8d7f2;
+    font-size:15px;
+    cursor:pointer;
+    transition:transform 0.2s;"
+  onmouseover="this.style.transform='translateY(-3px)'" onmouseout="this.style.transform='translateY(0)'">
+    皮格马利翁闹剧
+  </button>
+
+  <button onclick="location.href='唯一的隐德来希.html'" style="
+    flex:1;
+    min-width:200px;
+    padding:14px;
+    background:#2d344d;
+    border:2px solid #2d344d;
+    border-radius:12px;
+    box-shadow:0 3px 12px rgba(140,110,200,0.08);
+    color:#c8d7f2;
+    font-size:15px;
+    cursor:pointer;
+    transition:transform 0.2s;
+  " onmouseover="this.style.transform='translateY(-3px)'" onmouseout="this.style.transform='translateY(0)'">
+    唯一的隐德来希
+  </button>
+</div>
+</body>
+</html>

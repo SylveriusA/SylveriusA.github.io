@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sylverius 的梦女主页</title>
+<style>
+/* 登录/注册/欢迎页样式 - 纯渐变无多余内容 */
+.login-wrap {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, #fddaf0, #d6eaff, #f0e4ff);
+  background-size: 200% 200%;
+  animation: bgMove 12s ease infinite;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.login-box {
+  background: rgba(255,255,255,0.9);
+  padding: 30px;
+  border-radius: 14px;
+  box-shadow: 0 3px 12px rgba(140,110,200,0.15);
+  width: 100%;
+  max-width: 380px;
+  text-align: center;
+}
+.login-box h2 {
+  color: #8164c7;
+  margin-bottom: 25px;
+  font-size: 20px;
+}
+.login-box input {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  outline: none;
+  font-size: 14px;
+  margin-bottom: 15px;
+  background: rgba(255,255,255,0.8);
+}
+.login-box input::placeholder {
+  color: #999;
+}
+.login-box button {
+  width: 100%;
+  padding: 12px;
+  background: #9178e6;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  margin: 5px 0;
+  transition: all 0.2s;
+}
+.login-box button:hover {
+  background: #8164c7;
+}
+.login-box .tip {
+  font-size: 12px;
+  color: #e66465;
+  margin-top: 10px;
+  min-height: 14px;
+}
+/* 原版基础样式 - 保留核心，删除提问/回复相关 */
+*{margin:0;padding:0;box-sizing:border-box;font-family:"微软雅黑",sans-serif}
+body{
+  background: linear-gradient(45deg, #fddaf0, #d6eaff, #f0e4ff);
+  background-size: 200% 200%;
+  animation: bgMove 12s ease infinite;
+  color:#333;
+  line-height:1.8;
+}
+@keyframes bgMove {
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+header{
+  position:fixed;top:0;width:100%;
+  background:rgba(255,255,255,0.85);
+  backdrop-filter:blur(6px);
+  box-shadow:0 1px 10px rgba(0,0,0,0.06);
+  z-index:999
+}
+.nav{
+  max-width:800px;margin:0 auto;
+  display:flex;justify-content:center;flex-wrap:wrap;
+  gap:18px;padding:13px 10px
+}
+.nav a{
+  text-decoration:none;
+  color:#555;
+  font-weight:500;
+}
+.nav a:hover{
+  color:#9178e6;
+}
+.box{max-width:800px;margin:100px auto 50px;padding:0 20px}
+.section{margin-bottom:50px}
+.title{
+  font-size:22px;
+  margin-bottom:20px;
+  border-left:5px solid #a885f1;
+  padding-left:12px;
+  color:#8164c7;
+}
+.card{
+  background:rgba(255,255,255,0.92);
+  border-radius:14px;
+  padding:26px;
+  box-shadow:0 3px 12px rgba(140,110,200,0.08);
+  margin-bottom:20px;
+  display:flex;
+  gap:22px;
+  align-items:flex-start;
+  flex-wrap:wrap;
+}
+.card img{
+  width: 140px;
+  height: 140px;
+  object-fit:cover;
+  border-radius:10px;
+  border: 2px solid rgba(255, 255, 255, 0.75);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.587);
+}
+.card .info{
+  flex:1;
+  min-width:200px;
+}
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(240px,1fr));
+  gap:16px;
+}
+.au-item{
+  background:rgba(255,255,255,0.92);
+  border-radius:14px;
+  overflow:hidden;
+  box-shadow:0 3px 12px rgba(140,110,200,0.08);
+  cursor:pointer;
+  transition:transform 0.2s;
+}
+.au-item:hover{
+  transform:translateY(-4px);
+}
+.au-item img{
+  width:100%;height:180px;object-fit:cover;
+  border-bottom: 3px solid rgba(255, 255, 255, 0.9);
+}
+.au-item .info{
+  padding:16px;
+  font-size:14px;
+  line-height:1.6;
+}
+/* 纯留言板样式 - 精简版 */
+.interactive-card{
+  background:rgba(255,255,255,0.92);
+  border-radius:14px;
+  padding:26px;
+  box-shadow:0 3px 12px rgba(140,110,200,0.08);
+  margin-bottom:20px;
+}
+.interactive-card input,
+.interactive-card textarea{
+  width:100%;
+  padding:12px 16px;
+  border:1px solid #e0e0e0;
+  border-radius:8px;
+  outline:none;
+  font-size:14px;
+  margin-bottom:8px;
+  resize:none;
+  background:rgba(255,255,255,0.8);
+}
+#msg-name{height:44px;}
+#msg-content{height:120px;}
+.interactive-card input:focus,
+.interactive-card textarea:focus{
+  border-color:#9178e6;
+  box-shadow:0 0 0 2px rgba(145,120,230,0.1);
+}
+.interactive-card button{
+  padding:10px 24px;
+  background:#9178e6;
+  color:#fff;
+  border:none;
+  border-radius:8px;
+  cursor:pointer;
+  font-size:14px;
+  font-weight:500;
+  transition:all 0.2s;
+  margin-top:8px;
+}
+.interactive-card button:hover{
+  background:#8164c7;
+  transform:translateY(-2px);
+}
+.word-count{
+  font-size:12px;
+  color:#999;
+  text-align:right;
+  margin-bottom:12px;
+}
+.word-count.error{color:#e66465;}
+#message-list{
+  margin-top:20px;
+  max-height:300px;
+  overflow-y:auto;
+  padding-right:8px;
+}
+.message-item{
+  padding:16px;
+  border-bottom:1px solid #f0f0f0;
+  margin-bottom:15px;
+  border-radius:8px;
+  background:rgba(248,248,248,0.6);
+}
+.message-item .name{
+  font-weight:500;
+  color:#8164c7;
+  font-size:14px;
+}
+.message-item .content{
+  font-size:14px;
+  margin:8px 0;
+  line-height:1.6;
+}
+.message-item .time{
+  font-size:12px;
+  color:#999;
+  text-align:right;
+}
+strong{color:#8a70d8}
+footer{text-align:center;padding:30px;color:#999}
+::-webkit-scrollbar{width:6px;height:6px;}
+::-webkit-scrollbar-thumb{background:#c0b2e8;border-radius:3px;}
+::-webkit-scrollbar-track{background:#f5f5f5;border-radius:3px;}
+</style>
+</head>
+<body>
+<!-- 登录/注册/欢迎页 - 纯渐变 -->
+<div class="login-wrap" id="loginWrap">
+  <div class="login-box">
+    <h2>登录 / 注册</h2>
+    <input type="text" id="userid" placeholder="设置/输入唯一ID" autocomplete="off">
+    <input type="password" id="pwd" placeholder="设置/输入密码" autocomplete="off">
+    <button onclick="register()">注册</button>
+    <button onclick="login()">登录</button>
+    <div class="tip" id="tip"></div>
+  </div>
+</div>
+
+<!-- 原版页面核心内容 - 仅保留关于我、梦角、AU、纯留言板 -->
+<header>
+<div class="nav">
+<a href="#about">关于我</a >
+<a href="#chars">梦角介绍</a >
+<a href="#memory">记忆回收站</a>
+<a href="#interactive">留言板</a>
+</header>
+<div class="box">
+<!-- 关于我 -->
+<section class="section" id="about">
+  <div class="title">关于我 · 梦设</div>
+  <div class="card">
+    <img src="me.jpg" alt="我的头像">
+    <div class="info">
+      <p><strong>姓名：</strong>Sylverius A Entelechy<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;希维琉斯 A 隐德来希</p >
+      <p><strong>性别：</strong>女</p >
+      <p><strong>性格：</strong>三无电波系 | 浮力系重女 | 黑暗圣女暴君</p >
+      <p><strong>梦属：</strong>HSR 真理医生 | 不死途 | 大丽花</p >
+    </div>
+  </div>
+</section>
+
+<!-- 梦角介绍 -->
+<section class="section" id="chars">
+  <div class="title">梦角介绍</div>
+  <div class="card">
+    <img src="char1.jpg" alt="真理医生">
+    <div class="info">
+      <p><strong>姓名：</strong>真理医生</p >
+      <p><strong>性别：</strong>男</p >
+      <p><strong>关系：</strong>爱情向 | BG </p >
+      <p><strong>内含：</strong>师生恋、NTR、BDSM、乱伦、血腥暴力、邪教相关</p >
+    </div>
+  </div>
+  <div class="card">
+    <img src="char2.jpg" alt="不死途">
+    <div class="info">
+      <p><strong>姓名：</strong>不死途</p >
+      <p><strong>性别：</strong>男</p >
+      <p><strong>关系：</strong>暧昧向 | BGB </p >
+      <p><strong>内含：</strong>出租屋文学、背叛、烂俗小说梗</p >
+    </div>
+  </div>
+  <div class="card">
+    <img src="char3.jpg" alt="大丽花">
+    <div class="info">
+      <p><strong>姓名：</strong>大丽花</p >
+      <p><strong>性别：</strong>女</p >
+      <p><strong>关系：</strong>前妻/痴女向 | GL</p >
+      <p><strong>内含：</strong>精神控制、背刺、囚禁、前妻文学</p >
+    </div>
+  </div>
+</section>
+
+<!-- AU记忆回收站 -->
+<section class="section" id="memory">
+  <div class="title">记忆回收站</div>
+  <div class="grid">
+   <div class="au-item" onclick="location.href='皮格马利翁闹剧.html'">
+  <img src="au1.jpg">
+  <div class="info">
+    <strong>皮格马利翁闹剧</strong><br>
+    庸人学者 & 天才造物
+  </div>
+</div>
+<div class="au-item" onclick="location.href='月夜蝴蝶谋杀案.html'">
+  <img src="au2.jpg">
+  <div class="info">
+    <strong>月夜蝴蝶谋杀案</strong><br>
+    二相乐园线
+  </div>
+</div>
+<div class="au-item" onclick="location.href='唯一的隐德来希.html'">
+  <img src="au3.jpg">
+  <div class="info">
+    <strong>唯一的隐德来希</strong><br>
+        神话之外的蝴蝶
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 纯留言板 - 无提问/无回复 -->
+<section class="section" id="interactive">
+  <div class="title">来访者留言板</div>
+  <div class="interactive-card">
+    <h3 style="font-size:16px;color:#8164c7;margin-bottom:16px;">💬 写下想对我说的话吧</h3>
+    <input type="text" id="msg-name" placeholder="你的昵称（选填）" maxlength="10" oninput="countWord('msg-name', 'msg-name-count', 10)">
+    <div class="word-count" id="msg-name-count">0/10</div>
+    <textarea id="msg-content" placeholder="想说的话都可以写在这里～" maxlength="200" oninput="countWord('msg-content', 'msg-content-count', 200)"></textarea>
+    <div class="word-count" id="msg-content-count">0/200</div>
+    <button onclick="submitMessage()">提交留言</button>
+    <div id="message-list"></div>
+  </div>
+</section>
+</div>
+<footer>© Sylverius 的梦女主页</footer>
+
+<script>
+// 注册/登录核心逻辑 - 唯一ID验证
+const tip = document.getElementById('tip');
+// 注册：ID唯一不可重复
+function register() {
+  const id = document.getElementById('userid').value.trim();
+  const pwd = document.getElementById('pwd').value.trim();
+  if (!id || !pwd) {
+    tip.innerText = 'ID和密码不能为空';
+    return;
+  }
+  if (localStorage.getItem('dreamUser_' + id)) {
+    tip.innerText = '该ID已被使用，请更换';
+    return;
+  }
+  localStorage.setItem('dreamUser_' + id, pwd);
+  localStorage.setItem('currentLoginId', id);
+  tip.innerText = '注册成功，即将进入';
+  setTimeout(() => {
+    document.getElementById('loginWrap').style.display = 'none';
+  }, 1000);
+}
+// 登录：验证ID和密码
+function login() {
+  const id = document.getElementById('userid').value.trim();
+  const pwd = document.getElementById('pwd').value.trim();
+  const savePwd = localStorage.getItem('dreamUser_' + id);
+  if (!id || !pwd) {
+    tip.innerText = 'ID和密码不能为空';
+    return;
+  }
+  if (!savePwd) {
+    tip.innerText = '该ID未注册';
+    return;
+  }
+  if (savePwd !== pwd) {
+    tip.innerText = '密码错误';
+    return;
+  }
+  localStorage.setItem('currentLoginId', id);
+  document.getElementById('loginWrap').style.display = 'none';
+}
+// 自动登录：刷新无需重复登录
+window.onload = function() {
+  if (localStorage.getItem('currentLoginId')) {
+    document.getElementById('loginWrap').style.display = 'none';
+  }
+  // 初始化留言板字数统计
+  countWord('msg-name', 'msg-name-count', 10);
+  countWord('msg-content', 'msg-content-count', 200);
+  // 渲染已有留言
+  renderMessages();
+};
+
+// 留言板核心功能 - 精简版
+function formatTime() {
+  const now = new Date();
+  return now.toLocaleString('zh-CN', {year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit'});
+}
+// 实时字数统计
+function countWord(inputId, countId, max) {
+  const input = document.getElementById(inputId);
+  const count = document.getElementById(countId);
+  const currentLen = input.value.length;
+  count.innerText = `${currentLen}/${max}`;
+  count.classList.toggle('error', currentLen > max);
+}
+// 提交留言
+function submitMessage() {
+  const name = document.getElementById('msg-name').value || '匿名来访者';
+  const content = document.getElementById('msg-content').value.trim();
+  const time = formatTime();
+  if (!content) {alert('留言内容不能为空哦～');return;}
+  if (content.length > 200 || name.length > 10) {alert('输入内容超出字数限制啦～');return;}
+  // 存储留言到本地
+  const message = {id: Date.now(), name, content, time};
+  let messages = JSON.parse(localStorage.getItem('visitorMessages')) || [];
+  messages.unshift(message);
+  localStorage.setItem('visitorMessages', JSON.stringify(messages));
+  // 重新渲染留言列表
+  renderMessages();
+  // 重置输入框
+  resetInput(['msg-name', 'msg-content']);
+  alert('留言提交成功～');
+}
+// 渲染留言列表
+function renderMessages() {
+  const messageList = document.getElementById('message-list');
+  const messages = JSON.parse(localStorage.getItem('visitorMessages')) || [];
+  if (messages.length === 0) {
+    messageList.innerHTML = '<p style="text-align:center;color:#999;font-size:14px;">暂无留言，快来成为第一个留言的人吧～</p>';
+    return;
+  }
+  let html = '';
+  messages.forEach(item => {
+    html += `
+      <div class="message-item">
+        <div class="name">${item.name} · ${item.time}</div>
+        <div class="content">${item.content}</div>
+      </div>
+    `;
+  });
+  messageList.innerHTML = html;
+}
+// 重置输入框和字数统计
+function resetInput(inputIds) {
+  inputIds.forEach(id => {
+    const input = document.getElementById(id);
+    input.value = '';
+    const countId = `${id}-count`;
+    if (document.getElementById(countId)) {
+      const max = input.maxLength || (id.includes('content') ? 200 : 10);
+      countWord(id, countId, max);
+    }
+  });
+}
+</script>
+</body>
+</html>
