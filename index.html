@@ -406,75 +406,14 @@ window.onload = function() {
   if (localStorage.getItem('currentLoginId')) {
     document.getElementById('loginWrap').style.display = 'none';
   }
-  // 初始化留言板字数统计
-  countWord('msg-name', 'msg-name-count', 10);
-  countWord('msg-content', 'msg-content-count', 200);
-  // 渲染已有留言
-  renderMessages();
-};
-
-// 留言板核心功能 - 精简版
-function formatTime() {
-  const now = new Date();
-  return now.toLocaleString('zh-CN', {year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit'});
-}
-// 实时字数统计
-function countWord(inputId, countId, max) {
-  const input = document.getElementById(inputId);
-  const count = document.getElementById(countId);
-  const currentLen = input.value.length;
-  count.innerText = `${currentLen}/${max}`;
-  count.classList.toggle('error', currentLen > max);
-}
-// 提交留言
-function submitMessage() {
-  const name = document.getElementById('msg-name').value || '匿名来访者';
-  const content = document.getElementById('msg-content').value.trim();
-  const time = formatTime();
-  if (!content) {alert('留言内容不能为空哦～');return;}
-  if (content.length > 200 || name.length > 10) {alert('输入内容超出字数限制啦～');return;}
-  // 存储留言到本地
-  const message = {id: Date.now(), name, content, time};
-  let messages = JSON.parse(localStorage.getItem('visitorMessages')) || [];
-  messages.unshift(message);
-  localStorage.setItem('visitorMessages', JSON.stringify(messages));
-  // 重新渲染留言列表
-  renderMessages();
-  // 重置输入框
-  resetInput(['msg-name', 'msg-content']);
-  alert('留言提交成功～');
-}
-// 渲染留言列表
-function renderMessages() {
-  const messageList = document.getElementById('message-list');
-  const messages = JSON.parse(localStorage.getItem('visitorMessages')) || [];
-  if (messages.length === 0) {
-    messageList.innerHTML = '<p style="text-align:center;color:#999;font-size:14px;">暂无留言，快来成为第一个留言的人吧～</p>';
-    return;
-  }
-  let html = '';
-  messages.forEach(item => {
-    html += `
-      <div class="message-item">
-        <div class="name">${item.name} · ${item.time}</div>
-        <div class="content">${item.content}</div>
-      </div>
-    `;
-  });
-  messageList.innerHTML = html;
-}
-// 重置输入框和字数统计
-function resetInput(inputIds) {
-  inputIds.forEach(id => {
-    const input = document.getElementById(id);
-    input.value = '';
-    const countId = `${id}-count`;
-    if (document.getElementById(countId)) {
-      const max = input.maxLength || (id.includes('content') ? 200 : 10);
-      countWord(id, countId, max);
-    }
-  });
-}
+ <div style="margin:30px 0; padding:20px; border-radius:12px; background:rgba(255,255,255,0.08); color:#fff;">
+  <h3>给 Sylverius 的留言</h3>
+  <form action="https://formsubmit.co/2607081125@qq.com" method="POST">
+    <input type="text" name="name" placeholder="你的昵称" required style="width:100%; padding:10px; margin:8px 0; border-radius:8px; border:none; background:rgba(255,255,255,0.1); color:white;"><br>
+    <textarea name="message" placeholder="想对我说的话..." required style="width:100%; padding:10px; margin:8px 0; border-radius:8px; border:none; background:rgba(255,255,255,0.1); color:white; height:100px;"></textarea><br>
+    <button type="submit" style="padding:10px 20px; border:none; border-radius:8px; background:#b8a6d6; font-weight:bold;">发送留言</button>
+  </form>
+</div>
 </script>
 </body>
 </html>
